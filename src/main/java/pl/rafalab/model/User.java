@@ -3,6 +3,8 @@ package pl.rafalab.model;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
+import pl.rafalab.Validators.EmailConfirmator;
+import pl.rafalab.Validators.UserNameContirmator;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -16,6 +18,7 @@ public class User {
     private Long id;
 
     @NotEmpty
+    @UserNameContirmator
     @Column(unique = true)
     private String userName;
 
@@ -31,6 +34,7 @@ public class User {
 
     @Email
     @NotNull
+    @EmailConfirmator
     @Column(unique = true)
     private String email;
 

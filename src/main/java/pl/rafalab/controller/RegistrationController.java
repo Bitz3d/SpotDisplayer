@@ -13,12 +13,15 @@ import pl.rafalab.repositories.UserRepository;
 
 import javax.validation.Valid;
 
+
 @Controller
 @RequestMapping("/user")
 public class RegistrationController {
 
     @Autowired
     UserRepository userRepository;
+
+
 
     @GetMapping("/registration")
     public String registration(Model model) {
@@ -33,7 +36,10 @@ public class RegistrationController {
     @PostMapping("/registration")
     public String registration(@Valid User user, BindingResult result) {
 
+
+
         if (result.hasErrors()) {
+
 
             return "form/registration";
         }
@@ -43,5 +49,38 @@ public class RegistrationController {
 
     }
 
+//    private boolean isEmailInDatabase(String emailToConfirm){
+//
+//        List<User> allUsers = userRepository.findAll();
+//
+//        for (User user: allUsers) {
+//
+//            if(user.getEmail().equals(emailToConfirm)){
+//                return true;
+//            }
+//
+//
+//        }
+//
+//        return false;
+//
+//    }
+
+//    private boolean isUsernameInDatabase(String userNameToConfirm){
+//
+//        List<User> allUsers = userRepository.findAll();
+//
+//        for (User user: allUsers) {
+//
+//            if(user.getUserName().equals(userNameToConfirm)){
+//                return true;
+//            }
+//
+//
+//        }
+//
+//        return false;
+//
+//    }
 
 }
