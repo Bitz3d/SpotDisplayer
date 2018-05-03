@@ -3,11 +3,13 @@ package pl.rafalab.model;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.mindrot.jbcrypt.BCrypt;
 import pl.rafalab.Validators.EmailConfirmator;
 import pl.rafalab.Validators.UserNameContirmator;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class User {
@@ -25,11 +27,13 @@ public class User {
 
     @NotBlank
     @NotNull
+    @Size(min = 5)
     private String password;
 
 
     @NotBlank
     @NotNull
+    @Transient
     private String confirmPassword;
 
     @Email
@@ -41,12 +45,6 @@ public class User {
     public User() {
     }
 
-    public User(String userName, String password, String confirmPassword, String email) {
-        this.userName = userName;
-        this.password = password;
-        this.confirmPassword = confirmPassword;
-        this.email = email;
-    }
 
     public Long getId() {
         return id;
@@ -68,9 +66,26 @@ public class User {
         return password;
     }
 
+
     public void setPassword(String password) {
-        this.password = password;
-        checkPassword();
+
+        if(password.length() < 5)
+        {
+            this.password ="s";
+
+
+        }
+        else
+        {
+            this.password =   password;
+
+            checkPassword();
+            hashPassword();
+        }
+
+
+
+
     }
 
     public String getConfirmPassword() {
@@ -95,7 +110,7 @@ public class User {
         this.email = email;
     }
 
-    public void checkPassword() {
+    private void checkPassword() {
         if (this.password == null || this.confirmPassword == null) {
             return;
         } else if (!this.password.equals(this.confirmPassword )) {
@@ -103,4 +118,11 @@ public class User {
         }
 
     }
+    private void hashPassword(){
+
+         this.password = BCrypt.hashpw(this.password,BCrypt.gensalt());
+
+
+    }
+
 }

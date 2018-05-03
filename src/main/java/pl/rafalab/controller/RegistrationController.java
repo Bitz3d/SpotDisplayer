@@ -44,43 +44,11 @@ public class RegistrationController {
             return "form/registration";
         }
 
+            user.getPassword();
+
         userRepository.save(user);
         return "home";
 
     }
-
-//    private boolean isEmailInDatabase(String emailToConfirm){
-//
-//        List<User> allUsers = userRepository.findAll();
-//
-//        for (User user: allUsers) {
-//
-//            if(user.getEmail().equals(emailToConfirm)){
-//                return true;
-//            }
-//
-//
-//        }
-//
-//        return false;
-//
-//    }
-
-//    private boolean isUsernameInDatabase(String userNameToConfirm){
-//
-//        List<User> allUsers = userRepository.findAll();
-//
-//        for (User user: allUsers) {
-//
-//            if(user.getUserName().equals(userNameToConfirm)){
-//                return true;
-//            }
-//
-//
-//        }
-//
-//        return false;
-//
-//    }
 
 }

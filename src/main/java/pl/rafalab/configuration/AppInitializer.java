@@ -8,7 +8,7 @@ import org.springframework.web.servlet.DispatcherServlet;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
-public class AppInicalizer implements WebApplicationInitializer {
+public class AppInitializer implements WebApplicationInitializer {
 
 
 
