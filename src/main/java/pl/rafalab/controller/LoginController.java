@@ -33,8 +33,8 @@ public class LoginController {
 
       List<User> userList =  userRepository.findAll();
 
-
-      if(userValidation(userList,username)&&passwordValidation(userList,password))
+      if(userList.stream().anyMatch((u) -> u.getUserName().equals(username))
+        && userList.stream().anyMatch(user -> BCrypt.checkpw(password,user.getPassword())))
         {
 
           return "home";
@@ -42,36 +42,6 @@ public class LoginController {
 
 
         return "login";
-
-    }
-
-     private boolean userValidation(List<User> userList, String userToCheck)
-     {
-         for (User user:userList) {
-
-             if(user.getUserName().equals(userToCheck)){
-                 return true;
-             }
-
-         }
-         return false;
-
-     }
-
-    private boolean passwordValidation(List<User> userList, String password)
-    {
-
-
-        for (User user:userList) {
-
-           if (BCrypt.checkpw(password,user.getPassword())){
-               return true;
-
-           }
-
-
-        }
-        return false;
 
     }
 

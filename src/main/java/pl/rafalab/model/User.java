@@ -77,7 +77,7 @@ public class User {
         }
         else
         {
-            this.password =   password;
+            this.password =  password;
 
             checkPassword();
             hashPassword();

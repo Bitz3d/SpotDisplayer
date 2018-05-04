@@ -44,7 +44,7 @@ public class RegistrationController {
             return "form/registration";
         }
 
-            user.getPassword();
+//            user.getPassword();
 
         userRepository.save(user);
         return "home";
