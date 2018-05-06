@@ -37,14 +37,12 @@ public class RegistrationController {
     public String registration(@Valid User user, BindingResult result) {
 
 
-
         if (result.hasErrors()) {
 
 
             return "form/registration";
         }
 
-//            user.getPassword();
 
         userRepository.save(user);
         return "home";

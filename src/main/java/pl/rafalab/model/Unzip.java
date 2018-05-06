@@ -1,9 +1,11 @@
-package pl.rafalab.functions;
+package pl.rafalab.model;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -17,10 +19,11 @@ public class Unzip {
     private static final int BUFFER_SIZE = 4096;
 
 
-    public void unZipFile(MultipartFile files) throws IOException {
-        final String destDirectory = "/home/rafau/Desktop/zipfiles/"+files.getOriginalFilename().replace(".zip","");
-
+    public String unZipFile(MultipartFile files) throws IOException {
+        final String destDirectory = "/home/rafau/Desktop/zipfiles/" + files.getOriginalFilename().replace(".zip", "");
+        String filePath = null;
         File destDir = new File(destDirectory);
+
 
 //        Trick to move file to server then unzip it.
         File rarFilePath = new File(files.getOriginalFilename());
@@ -30,15 +33,17 @@ public class Unzip {
 //        Create new file if not exist
         if (!destDir.exists()) {
             destDir.mkdir();
+
         }
         ZipInputStream zipIn = new ZipInputStream(new FileInputStream(rarFilePath.getAbsoluteFile()));
         ZipEntry entry = zipIn.getNextEntry();
 
         while (entry != null) {
-            String filePath = destDirectory + File.separator + entry.getName();
+            filePath = destDirectory + File.separator + entry.getName();
             if (!entry.isDirectory()) {
                 // if the entry is a file, extracts it
                 extractFile(zipIn, filePath);
+
             } else {
                 // if the entry is a directory, make the directory
                 File dir = new File(filePath);
@@ -48,6 +53,7 @@ public class Unzip {
             entry = zipIn.getNextEntry();
         }
         zipIn.close();
+        return filePath;
     }
 
     private void extractFile(ZipInputStream zipIn, String filePath) throws IOException {
