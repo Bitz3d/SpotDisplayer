@@ -17,7 +17,17 @@ public class Unzip {
      * Size of the buffer to read/write data
      */
     private static final int BUFFER_SIZE = 4096;
+
+    /**
+     * Main unziped files folder
+     */
     private String mainUnzipedFileFolder=null;
+
+
+
+
+
+
 
     public String getMainUnzipedFileFolder() {
         return mainUnzipedFileFolder;

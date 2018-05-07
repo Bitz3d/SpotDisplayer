@@ -27,23 +27,34 @@ public class UnzipController {
 
     @PostMapping("/files")
     public String submit(@RequestParam("file") List<MultipartFile> files, ModelMap modelMap) {
-        modelMap.addAttribute("files", files);
-
-        List<String> pathList = new ArrayList<>();
-
-        files.forEach((file) -> {
-            try {
-                pathList.add(unzip.unZipFile(file));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
 
 
-        File dir = new File(unzip.getMainUnzipedFileFolder());
-        pathList.forEach(s -> textFinder.displayDirectoryContents(dir));
+            modelMap.addAttribute("files", files);
 
-        return "unZiped";
+            List<String> pathList = new ArrayList<>();
+
+            files.forEach((file) -> {
+                try {
+
+                    pathList.add(unzip.unZipFile(file));
+
+                } catch (IOException e) {
+
+                    e.printStackTrace();
+
+
+                }
+            });
+
+
+            File dir = new File(unzip.getMainUnzipedFileFolder());
+            pathList.forEach(s -> textFinder.displayDirectoryContents(dir));
+
+            return "unZiped";
+
+
+
+
     }
 
 
