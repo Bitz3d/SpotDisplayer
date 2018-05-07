@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.rafalab.model.User;
 import pl.rafalab.repositories.UserRepository;
-
 import javax.validation.Valid;
 
 

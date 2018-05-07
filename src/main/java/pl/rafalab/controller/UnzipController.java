@@ -28,28 +28,23 @@ public class UnzipController {
     @PostMapping("/files")
     public String submit(@RequestParam("file") List<MultipartFile> files, ModelMap modelMap) {
         modelMap.addAttribute("files", files);
+
         List<String> pathList = new ArrayList<>();
-        List<File[]> textFilesList = new ArrayList<>();
+
         files.forEach((file) -> {
             try {
-               pathList.add(unzip.unZipFile(file));
+                pathList.add(unzip.unZipFile(file));
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
 
 
-
-        String mainFolder = "/home/rafau/Desktop/zipfiles/";
-        File dir = new File(mainFolder);
-        pathList.forEach(s ->  textFinder.displayDirectoryContents(dir));
-
+        File dir = new File(unzip.getMainUnzipedFileFolder());
+        pathList.forEach(s -> textFinder.displayDirectoryContents(dir));
 
         return "unZiped";
     }
-
-
-
 
 
 }

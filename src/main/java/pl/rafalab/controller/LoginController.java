@@ -34,7 +34,7 @@ public class LoginController {
       List<User> userList =  userRepository.findAll();
 
       if(userList.stream().anyMatch(u -> u.getUserName().equals(username))
-        && userList.stream().anyMatch(user -> BCrypt.checkpw(password,user.getPassword())))
+         && userList.stream().anyMatch(user -> BCrypt.checkpw(password,user.getPassword())))
         {
 
           return "home";

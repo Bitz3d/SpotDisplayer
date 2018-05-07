@@ -17,10 +17,26 @@ public class Unzip {
      * Size of the buffer to read/write data
      */
     private static final int BUFFER_SIZE = 4096;
+    private String mainUnzipedFileFolder=null;
 
+    public String getMainUnzipedFileFolder() {
+        return mainUnzipedFileFolder;
+    }
 
     public String unZipFile(MultipartFile files) throws IOException {
-        final String destDirectory = "/home/rafau/Desktop/zipfiles/" + files.getOriginalFilename().replace(".zip", "");
+
+
+        //        Make main directory on user dekstop
+        File desktop = new File(System.getProperty("user.home"), "Desktop/zipfiles");
+
+
+        if (!desktop.exists()) {
+            desktop.mkdir();
+
+        }
+
+        final String destDirectory = desktop.getPath() + "/" + files.getOriginalFilename().replace(".zip", "");
+        mainUnzipedFileFolder =desktop.getPath() + "/" + files.getOriginalFilename().replace(".zip", "");
         String filePath = null;
         File destDir = new File(destDirectory);
 
@@ -65,6 +81,8 @@ public class Unzip {
         }
         bos.close();
     }
+
+
 
 
 }

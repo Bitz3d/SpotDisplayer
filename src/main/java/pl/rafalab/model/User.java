@@ -14,7 +14,6 @@ import javax.validation.constraints.Size;
 @Entity
 public class User {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -69,21 +68,16 @@ public class User {
 
     public void setPassword(String password) {
 
-        if(password.length() < 5)
-        {
-            this.password ="s";
+        if (password.length() < 5) {
+            this.password = "s";
 
 
-        }
-        else
-        {
-            this.password =  password;
+        } else {
+            this.password = password;
 
             checkPassword();
             hashPassword();
         }
-
-
 
 
     }
@@ -99,7 +93,6 @@ public class User {
         this.confirmPassword = confirmPassword;
         checkPassword();
 
-
     }
 
     public String getEmail() {
@@ -113,14 +106,15 @@ public class User {
     private void checkPassword() {
         if (this.password == null || this.confirmPassword == null) {
             return;
-        } else if (!this.password.equals(this.confirmPassword )) {
+        } else if (!this.password.equals(this.confirmPassword)) {
             this.confirmPassword = null;
         }
 
     }
-    private void hashPassword(){
 
-         this.password = BCrypt.hashpw(this.password,BCrypt.gensalt());
+    private void hashPassword() {
+
+        this.password = BCrypt.hashpw(this.password, BCrypt.gensalt());
 
 
     }
