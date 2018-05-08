@@ -33,6 +33,7 @@ public class SpotPointWorker {
     public void spotPointRetriver(String robTarget) {
 
 
+
         if (robTarget.contains("lsp")) {
 
             String[] split = robTarget.split(":=");
@@ -45,7 +46,8 @@ public class SpotPointWorker {
 
             System.out.println(spotName);
 
-            if (spotName.endsWith("_f54")) {
+            if (spotName.endsWith("_f54")
+                    && spotPointF54Repository.findBySpotName(spotName) == null) {
 
 
 
@@ -59,7 +61,8 @@ public class SpotPointWorker {
                 spotPointF54Repository.save(spotPointF54);
 
             }
-            if (spotName.endsWith("_f55")) {
+            if (spotName.endsWith("_f55")
+                    && spotPointF55Repository.findBySpotName(spotName) == null) {
 
                 String[] f55clearRobXYZPositionsTab = soptSetter(secondPartOfRobtarget);
 
@@ -70,7 +73,8 @@ public class SpotPointWorker {
                 spotPointF55Repository.save(spotPointF55);
 
             }
-            if (spotName.endsWith("_f56")) {
+            if (spotName.endsWith("_f56")
+                    && spotPointF56Repository.findBySpotName(spotName) == null) {
 
                 String[] f56clearRobXYZPositionsTab = soptSetter(secondPartOfRobtarget);
 
@@ -95,7 +99,6 @@ public class SpotPointWorker {
         String[] spotsLocations = secondPartOfRobtarget.split("\\],\\[");
 
         String robXYZPositions = spotsLocations[0];
-
 
         String clearRobXYZPositions = robXYZPositions.replaceAll("\\[\\[", "");
 

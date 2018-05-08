@@ -21,7 +21,6 @@ public class RegistrationController {
     UserRepository userRepository;
 
 
-
     @GetMapping("/registration")
     public String registration(Model model) {
 
