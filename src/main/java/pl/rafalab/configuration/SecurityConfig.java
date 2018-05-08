@@ -1,15 +1,7 @@
-
-
-
-
-// TODO SECURITY !!!!
-
-
-
-
-
-
-
+//
+// TODO
+//
+//
 //package pl.rafalab.configuration;
 //
 //
@@ -25,11 +17,11 @@
 //
 //@Configuration
 //@EnableWebMvcSecurity
-////@ComponentScan(value="pl.rafalab.repositories")
+//@ComponentScan(value="pl.rafalab.repositories")
 //public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //
-////    @Autowired
-////    UserRepository userRepository;
+//    @Autowired
+//    UserRepository userRepository;
 //
 //    protected void configure(HttpSecurity http) throws Exception {
 //        http
@@ -61,12 +53,12 @@
 //    }
 //
 //
-////    @Override protected void configure(AuthenticationManagerBuilder auth)
-////            throws Exception {
-////        auth.
-//////                .jdbcAuthentication()
-//////                .dataSource(userRepository);
-////    }
+//    @Override protected void configure(AuthenticationManagerBuilder auth)
+//            throws Exception {
+//        auth
+//                .jdbcAuthentication()
+//                .dataSource(userRepository);
+//    }
 //
 //
 //

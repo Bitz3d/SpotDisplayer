@@ -24,11 +24,6 @@ public class Unzip {
     private String mainUnzipedFileFolder=null;
 
 
-
-
-
-
-
     public String getMainUnzipedFileFolder() {
         return mainUnzipedFileFolder;
     }
@@ -46,7 +41,7 @@ public class Unzip {
         }
 
         final String destDirectory = desktop.getPath() + "/" + files.getOriginalFilename().replace(".zip", "");
-        mainUnzipedFileFolder =desktop.getPath() + "/" + files.getOriginalFilename().replace(".zip", "");
+        mainUnzipedFileFolder = desktop.getPath() + "/" + files.getOriginalFilename().replace(".zip", "");
         String filePath = null;
         File destDir = new File(destDirectory);
 

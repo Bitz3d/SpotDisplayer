@@ -1,7 +1,7 @@
 package pl.rafalab.model;
 
-
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +10,8 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class SpotPoint {
+@Component
+public class SpotPointF56 {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,10 +32,10 @@ public class SpotPoint {
     private double pointZ;
 
 
-    public SpotPoint() {
+    public SpotPointF56() {
     }
 
-    public SpotPoint(String spotName, double pointX, double pointY, double pointZ) {
+    public SpotPointF56(String spotName, double pointX, double pointY, double pointZ) {
         this.spotName = spotName;
         this.pointX = pointX;
         this.pointY = pointY;
@@ -85,4 +86,6 @@ public class SpotPoint {
     public String toString() {
         return "Id:" +id+" Spot Name: "+spotName+" Point x: "+ pointX+" Point y: "+ pointY+" Point z: "+ pointY;
     }
+
+
 }

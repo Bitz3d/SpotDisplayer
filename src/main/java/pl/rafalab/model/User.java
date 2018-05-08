@@ -69,7 +69,7 @@ public class User {
     public void setPassword(String password) {
 
         if (password.length() < 5) {
-            this.password = "s";
+            this.password = "";
 
 
         } else {
