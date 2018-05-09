@@ -30,7 +30,9 @@
 </head>
 <body>
 
-
+<a href="/"><button>Add Next Robot</button></a>
+<a href="center"><button>Back to center</button></a>
+<div>
 <table>
 
     <tr>
@@ -39,6 +41,8 @@
         <th>X</th>
         <th>Y</th>
         <th>Z</th>
+        <th>Robot</th>
+        <th>Line</th>
 
     </tr>
 
@@ -51,6 +55,8 @@
             <td>${f54Spot.getPointX()}</td>
             <td>${f54Spot.getPointY()}</td>
             <td>${f54Spot.getPointZ()}</td>
+            <td>${f54Spot.getRobName()}</td>
+            <td>${f54Spot.getLine()}</td>
         </tr>
 
     </c:forEach>
@@ -66,10 +72,12 @@
         <th>X</th>
         <th>Y</th>
         <th>Z</th>
+        <th>Robot</th>
+        <th>Line</th>
 
     </tr>
 
-    <%--@elvariable id="book" type="pl.rafalab.model.SpotPointF54"--%>
+    <%--@elvariable id="book" type="pl.rafalab.model.SpotPointF55"--%>
 
     <c:forEach items="${f55SpotPoints}" var="f55Spot">
 
@@ -78,6 +86,8 @@
             <td>${f55Spot.getPointX()}</td>
             <td>${f55Spot.getPointY()}</td>
             <td>${f55Spot.getPointZ()}</td>
+            <td>${f55Spot.getRobName()}</td>
+            <td>${f55Spot.getLine()}</td>
         </tr>
 
     </c:forEach>
@@ -94,24 +104,28 @@
         <th>X</th>
         <th>Y</th>
         <th>Z</th>
+        <th>Robot</th>
+        <th>Line</th>
 
     </tr>
 
-    <%--@elvariable id="book" type="pl.rafalab.model.SpotPointF54"--%>
+    <%--@elvariable id="book" type="pl.rafalab.model.SpotPointF56"--%>
 
-    <c:forEach items="${f55SpotPoints}" var="f55Spot">
+    <c:forEach items="${f56SpotPoints}" var="f56Spot">
 
         <tr>
-            <td>${f55Spot.getSpotName()}</td>
-            <td>${f55Spot.getPointX()}</td>
-            <td>${f55Spot.getPointY()}</td>
-            <td>${f55Spot.getPointZ()}</td>
+            <td>${f56Spot.getSpotName()}</td>
+            <td>${f56Spot.getPointX()}</td>
+            <td>${f56Spot.getPointY()}</td>
+            <td>${f56Spot.getPointZ()}</td>
+            <td>${f56Spot.getRobName()}</td>
+            <td>${f56Spot.getLine()}</td>
         </tr>
 
     </c:forEach>
 
 </table>
-
+</div>
 
 
 </body>

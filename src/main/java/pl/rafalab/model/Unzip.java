@@ -34,14 +34,13 @@ public class Unzip {
         //        Make main directory on user dekstop
         File desktop = new File(System.getProperty("user.home"), "Desktop/zipfiles");
 
-
+        mainUnzipedFileFolder = desktop.getPath();
         if (!desktop.exists()) {
             desktop.mkdir();
 
         }
 
         final String destDirectory = desktop.getPath() + "/" + files.getOriginalFilename().replace(".zip", "");
-        mainUnzipedFileFolder = desktop.getPath() + "/" + files.getOriginalFilename().replace(".zip", "");
         String filePath = null;
         File destDir = new File(destDirectory);
 

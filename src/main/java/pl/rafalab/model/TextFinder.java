@@ -1,5 +1,6 @@
 package pl.rafalab.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
@@ -12,14 +13,11 @@ import java.util.Scanner;
 @Component
 public class TextFinder {
 
+    @Autowired
+    SpotPointWorker spotPointWorker;
 
-    private  static List<String> spotsList = new ArrayList();
 
-    public static List<String> getSpotsList() {
-        return spotsList;
-    }
-
-    public static void displayDirectoryContents(File dir) {
+    public void displayDirectoryContents(File dir) {
 
         try {
             File[] files = dir.listFiles();
@@ -27,7 +25,7 @@ public class TextFinder {
                 if (file.isDirectory()) {
                     displayDirectoryContents(file);
                 } else {
-                    if (file.getCanonicalPath().endsWith(".mod")) {
+                    if (file.getName().matches("F\\d\\dM\\d\\d\\_\\d\\dR\\d\\d\\.mod")) {
                         parseFile(file.getCanonicalPath());
                     }
                 }
@@ -39,19 +37,30 @@ public class TextFinder {
     }
 
 
-    private static void parseFile(String fileName) throws FileNotFoundException {
+    private void parseFile(String fileName) throws FileNotFoundException {
+
+        String robName = null;
+        String lineName = null;
 
 
         Scanner scan = new Scanner(new File(fileName));
-        while(scan.hasNext()){
+        while (scan.hasNext()) {
             String line = scan.nextLine().toLowerCase().toString();
-            if(line.contains("robtarget")){
-                spotsList.add(line);
+            if (line.contains("module")) {
+
+                robName = spotPointWorker.getRobName(line);
+                lineName = spotPointWorker.getLineName(line);
+
             }
+
+            if (line.contains("robtarget")) {
+
+                spotPointWorker.spotPointSaver(line, robName, lineName);
+            }
+
         }
 
     }
-
 
 
 }

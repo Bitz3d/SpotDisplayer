@@ -12,9 +12,7 @@
 </head>
 <body>
 <h1>Please chose files</h1>
-<a href="/login"><button>Login</button></a>
-<a href="/user/registration"><button>Registration</button></a>
-<br>
+
 <br>
 
 <form method="POST" action="/files" enctype="multipart/form-data">

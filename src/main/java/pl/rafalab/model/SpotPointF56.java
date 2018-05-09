@@ -31,15 +31,39 @@ public class SpotPointF56 {
     @NotNull
     private double pointZ;
 
+    @NotEmpty
+    private String robName;
+
+    @NotEmpty
+    private String line;
+
+
+    public String getRobName() {
+        return robName;
+    }
+
+    public void setRobName(String robName) {
+        this.robName = robName;
+    }
+
+    public String getLine() {
+        return line;
+    }
+
+    public void setLine(String line) {
+        this.line = line;
+    }
 
     public SpotPointF56() {
     }
 
-    public SpotPointF56(String spotName, double pointX, double pointY, double pointZ) {
+    public SpotPointF56(String spotName, double pointX, double pointY, double pointZ,String robName, String line) {
         this.spotName = spotName;
         this.pointX = pointX;
         this.pointY = pointY;
         this.pointZ = pointZ;
+        this.robName=robName;
+        this.line = line;
     }
 
     public Long getId() {
