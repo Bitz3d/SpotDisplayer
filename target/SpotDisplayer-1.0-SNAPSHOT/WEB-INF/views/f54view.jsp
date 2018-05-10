@@ -31,6 +31,7 @@
 <body>
 <a href="/"><button>Add Next Robot</button></a>
 <a href="center"><button>Back to center</button></a>
+<a href="generateF54Model"><button>Generate model</button></a>
 <table>
 
     <tr>

@@ -12,6 +12,8 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.LocaleContextResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistration;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
@@ -27,6 +29,11 @@ import java.util.Locale;
 @EnableJpaRepositories(basePackages = "pl.rafalab.repositories")
 public class AppConfig extends WebMvcConfigurerAdapter {
 
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        ResourceHandlerRegistration resourceRegistration =  registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+    }
 
     @Bean
     public LocalEntityManagerFactoryBean entityManagerFactory() {
