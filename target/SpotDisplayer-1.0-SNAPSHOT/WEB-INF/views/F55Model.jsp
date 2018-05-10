@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: rafau
   Date: 10.05.18
-  Time: 10:58
+  Time: 14:12
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -54,8 +54,8 @@
     //Control
 
     controls = new THREE.OrbitControls(camera, renderer.domElement)
-        </script>
-<c:forEach items="${f54SpotPoints}" var="f54Spot">
+</script>
+<c:forEach items="${f55SpotPoints}" var="f55Spot">
 
     <script>
         //////////////////////////////////////////////////////////////////////////////////////////////
@@ -63,29 +63,30 @@
         var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
         var cube = new THREE.Mesh( geometry, material );
 
-        cube.position.x = ${f54Spot.getPointX()/100};
-        cube.position.y = ${f54Spot.getPointY()/100};
-        cube.position.z = ${f54Spot.getPointZ()/100};
+        cube.position.x = ${f55Spot.getPointX()/100};
+        cube.position.y = ${f55Spot.getPointY()/100};
+        cube.position.z = ${f55Spot.getPointZ()/100};
 
         scene.add( cube);
     </script>
 </c:forEach>
-        <script>
+
+<script>
 
 
-        //////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////
 
 
-        function animate() {
-            requestAnimationFrame( animate );
-            renderer.render( scene, camera );
+    function animate() {
+        requestAnimationFrame( animate );
+        renderer.render( scene, camera );
 
 
-        }
-        animate();
+    }
+    animate();
 
 
-    </script>
+</script>
 
 
 
@@ -93,3 +94,4 @@
 
 </body>
 </html>
+

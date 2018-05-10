@@ -56,6 +56,7 @@
             <td>${f54Spot.getPointZ()}</td>
             <td>${f54Spot.getRobName()}</td>
             <td>${f54Spot.getLine()}</td>
+            <td><a href="F54ShowSpecificPoint/${f54Spot.getId()}"><button>Show point on model</button></a></td>
         </tr>
 
     </c:forEach>

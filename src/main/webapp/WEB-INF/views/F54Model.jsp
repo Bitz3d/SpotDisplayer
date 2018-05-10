@@ -33,7 +33,7 @@
     renderer.setSize( window.innerWidth, window.innerHeight );
     document.body.appendChild( renderer.domElement );
 
-    camera.position.z =200;
+    camera.position.z =30;
 
     //////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -69,24 +69,6 @@
 
         scene.add( cube);
     </script>
-</c:forEach>
-
-<script>        var geometry = new THREE.Geometry(); </script>
-<c:forEach items="${f54SpotPoints}" var="f54Spot">
-<script>
-        //////////////////////////////////////////////////////////////////////////////////////////////
-        console.log('ssssss');
-
-        //create a blue LineBasicMaterial
-
-
-        geometry.vertices.push(new THREE.Vector3( ${f54Spot.getPointX()/100}, ${f54Spot.getPointY()/100}, ${f54Spot.getPointZ()/100}) );
-
-        var line = new THREE.Line( geometry );
-
-        scene.add( line );
-        renderer.render( scene, camera );
-</script>
 </c:forEach>
         <script>
 

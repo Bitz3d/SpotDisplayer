@@ -31,6 +31,7 @@
 <body>
 <a href="/"><button>Add Next Robot</button></a>
 <a href="center"><button>Back to center</button></a>
+<a href="generateF56Model"><button>Generate model</button></a>
 <table>
 
     <tr>
@@ -55,6 +56,7 @@
             <td>${f56Spot.getPointZ()}</td>
             <td>${f56Spot.getRobName()}</td>
             <td>${f56Spot.getLine()}</td>
+            <td><a href="F56ShowSpecificPoint/${f56Spot.getId()}"><button>Show point on model</button></a></td>
         </tr>
 
     </c:forEach>
