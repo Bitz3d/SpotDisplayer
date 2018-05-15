@@ -12,12 +12,14 @@
 </head>
 <body>
 <h1>Please chose files</h1>
-
+<a href="/"><button>Center</button></a>
+<br>
 <br>
 
 <form method="POST" action="/files" enctype="multipart/form-data">
     File to upload: <input type="file" name="file" accept=".zip,.rar" multiple><br /><br />
     <input type="submit" value="Upload"> Press here to upload the file!
 </form>
+
 </body>
 </html>

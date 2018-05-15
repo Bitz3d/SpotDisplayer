@@ -119,39 +119,54 @@ public class SpotPointWorker {
             if (spotName.endsWith("_f54")
                     && spotPointF54Repository.findBySpotName(spotName) == null) {
 
+
                 String[] f54clearRobXYZPositionsTab = soptSetter(secondPartOfRobtarget);
 
-                String f54robXPositions = f54clearRobXYZPositionsTab[0];
-                String f54robYPositions = f54clearRobXYZPositionsTab[1];
-                String f54robZPositions = f54clearRobXYZPositionsTab[2];
+                if(f54clearRobXYZPositionsTab != null && f54clearRobXYZPositionsTab.length<4) {
 
 
-                spotPointF54 = new SpotPointF54(spotName, Double.parseDouble(f54robXPositions), Double.parseDouble(f54robYPositions), Double.parseDouble(f54robZPositions), robName, lineName);
-                spotPointF54Repository.save(spotPointF54);
+                    String f54robXPositions = f54clearRobXYZPositionsTab[0];
+                    String f54robYPositions = f54clearRobXYZPositionsTab[1];
+                    String f54robZPositions = f54clearRobXYZPositionsTab[2];
 
-            }
-            if (spotName.endsWith("_f55")
+
+                    spotPointF54 = new SpotPointF54(spotName, Double.parseDouble(f54robXPositions), Double.parseDouble(f54robYPositions), Double.parseDouble(f54robZPositions), robName, lineName);
+                    spotPointF54Repository.save(spotPointF54);
+                }
+                }
+                if (spotName.endsWith("_f55")
                     && spotPointF55Repository.findBySpotName(spotName) == null) {
+
 
                 String[] f55clearRobXYZPositionsTab = soptSetter(secondPartOfRobtarget);
 
-                String f55robXPositions = f55clearRobXYZPositionsTab[0];
-                String f55robYPositions = f55clearRobXYZPositionsTab[1];
-                String f55robZPositions = f55clearRobXYZPositionsTab[2];
-                spotPointF55 = new SpotPointF55(spotName, Double.parseDouble(f55robXPositions), Double.parseDouble(f55robYPositions), Double.parseDouble(f55robZPositions), robName, lineName);
-                spotPointF55Repository.save(spotPointF55);
+                if(f55clearRobXYZPositionsTab != null && f55clearRobXYZPositionsTab.length<4) {
 
+
+
+                    String f55robXPositions = f55clearRobXYZPositionsTab[0];
+                    String f55robYPositions = f55clearRobXYZPositionsTab[1];
+                    String f55robZPositions = f55clearRobXYZPositionsTab[2];
+                    spotPointF55 = new SpotPointF55(spotName, Double.parseDouble(f55robXPositions), Double.parseDouble(f55robYPositions), Double.parseDouble(f55robZPositions), robName, lineName);
+                    spotPointF55Repository.save(spotPointF55);
+                }
             }
             if (spotName.endsWith("_f56")
                     && spotPointF56Repository.findBySpotName(spotName) == null) {
 
+
                 String[] f56clearRobXYZPositionsTab = soptSetter(secondPartOfRobtarget);
 
-                String f56robXPositions = f56clearRobXYZPositionsTab[0];
-                String f56robYPositions = f56clearRobXYZPositionsTab[1];
-                String f56robZPositions = f56clearRobXYZPositionsTab[2];
-                spotPointF56 = new SpotPointF56(spotName, Double.parseDouble(f56robXPositions), Double.parseDouble(f56robYPositions), Double.parseDouble(f56robZPositions), robName, lineName);
-                spotPointF56Repository.save(spotPointF56);
+                if(f56clearRobXYZPositionsTab != null && f56clearRobXYZPositionsTab.length<4){
+
+                    String f56robXPositions = f56clearRobXYZPositionsTab[0];
+                    String f56robYPositions = f56clearRobXYZPositionsTab[1];
+                    String f56robZPositions = f56clearRobXYZPositionsTab[2];
+                    spotPointF56 = new SpotPointF56(spotName, Double.parseDouble(f56robXPositions), Double.parseDouble(f56robYPositions), Double.parseDouble(f56robZPositions), robName, lineName);
+                    spotPointF56Repository.save(spotPointF56);
+
+                }
+
 
             } else {
                 System.out.println("Not a spot point");
@@ -165,15 +180,24 @@ public class SpotPointWorker {
 
     private String[] soptSetter(String secondPartOfRobtarget) {
 
-        String[] spotsLocations = secondPartOfRobtarget.split("\\],\\[");
+        if(secondPartOfRobtarget !=null){
 
-        String robXYZPositions = spotsLocations[0];
 
-        String clearRobXYZPositions = robXYZPositions.replaceAll("\\[\\[", "");
+            String[] spotsLocations = secondPartOfRobtarget.split("\\],\\[");
 
-        String[] clearRobXYZPositionsTab = clearRobXYZPositions.split(",");
+            String robXYZPositions = spotsLocations[0];
 
-        return clearRobXYZPositionsTab;
+            String clearRobXYZPositions = robXYZPositions.replaceAll("\\[\\[", "");
+
+            String[] clearRobXYZPositionsTab = clearRobXYZPositions.split(",");
+
+            return clearRobXYZPositionsTab;
+
+        }else{
+            return null;
+        }
+
+
 
     }
 

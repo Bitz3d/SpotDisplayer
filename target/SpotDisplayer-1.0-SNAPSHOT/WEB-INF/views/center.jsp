@@ -22,5 +22,7 @@
 <a href="/user/registration"><button>Registration</button></a>
 
 
+<a href="/testSpotPoint"><button>Test View</button></a>
+
 </body>
 </html>

@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: rafau
-  Date: 09.05.18
-  Time: 10:53
+  Date: 15.05.18
+  Time: 08:53
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -31,13 +31,12 @@
 <body>
 <a href="/files"><button>Add Next Robot</button></a>
 <a href="center"><button>Back to center</button></a>
-<a href="generateF55Model"><button>Generate model</button></a>
-
+<a href="generateTestModel"><button>Generate model</button></a>
 <table>
 
     <tr>
 
-        <th>F55 Spot Name</th>
+        <th>Test Spot Name</th>
         <th>X</th>
         <th>Y</th>
         <th>Z</th>
@@ -46,22 +45,24 @@
 
     </tr>
 
-    <%--@elvariable id="book" type="pl.rafalab.model.SpotPointF55"--%>
+    <%--@elvariable id="book" type="pl.rafalab.model.TestSpotPoint"--%>
 
-    <c:forEach items="${f55SpotPoints}" var="f55Spot">
+    <c:forEach items="${testSpotPoint}" var="TestSpot">
 
         <tr>
-            <td>${f55Spot.getSpotName()}</td>
-            <td>${f55Spot.getPointX()}</td>
-            <td>${f55Spot.getPointY()}</td>
-            <td>${f55Spot.getPointZ()}</td>
-            <td>${f55Spot.getRobName()}</td>
-            <td>${f55Spot.getLine()}</td>
-            <td><a href="F55ShowSpecificPoint/${f55Spot.getId()}"><button>Show point on model</button></a></td>
+            <td>${TestSpot.getSpotName()}</td>
+            <td>${TestSpot.getPointX()}</td>
+            <td>${TestSpot.getPointY()}</td>
+            <td>${TestSpot.getPointZ()}</td>
+            <td>${TestSpot.getRobName()}</td>
+            <td>${TestSpot.getLine()}</td>
         </tr>
 
     </c:forEach>
 
 </table>
+
+
+
 </body>
 </html>

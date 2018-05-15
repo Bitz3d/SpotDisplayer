@@ -41,9 +41,8 @@ public class RegistrationController {
             return "form/registration";
         }
 
-
         userRepository.save(user);
-        return "home";
+        return "center";
 
     }
 
