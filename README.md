@@ -15,3 +15,5 @@ Technology
 
 ![git photo 1](https://user-images.githubusercontent.com/30048214/40440383-34d00904-5ebe-11e8-80a7-07883f06d5fd.png)
 
+![model-gif kopia](https://user-images.githubusercontent.com/30048214/40440623-df44e7ce-5ebe-11e8-8bc9-5809907ac04c.gif)
+
