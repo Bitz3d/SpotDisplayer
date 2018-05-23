@@ -7,3 +7,8 @@ Technology
 2. HIbernate
 3. Spring Data
 4. Three.js
+
+
+## Presentation of full model made from spot points
+
+![git photo](https://user-images.githubusercontent.com/30048214/40440282-eb047a26-5ebd-11e8-8595-b408d5b2a886.jpg)
