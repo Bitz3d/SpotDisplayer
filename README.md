@@ -9,6 +9,11 @@ Technology
 4. Three.js
 
 
+## How does it work
+
+All you need is a welding robot backups. the program will build a 3D model of the car frame on the basis of points contained in text files.
+
+
 ## Presentation of full model made from welding points
 
 ![git photo](https://user-images.githubusercontent.com/30048214/40440282-eb047a26-5ebd-11e8-8595-b408d5b2a886.jpg)
